@@ -1,0 +1,114 @@
+/* Main container */
+
+#main {
+    width: 960px;
+    margin: auto;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5em;
+    font-size: 14pt;
+}
+
+/* Menu */
+
+#menu {
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: inherit;
+}
+
+#menu a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.active {
+    font-weight: bold;
+}
+
+/* About */
+
+table.legal-notice td {
+    vertical-align: top;
+}
+
+table.legal-notice td:first-child {
+    text-align: right;
+    padding-right: 20px;
+}
+
+/* Text */
+
+#content {
+    padding: 16px;
+    position: absolute;
+    top: 60px;
+    bottom: 250px;
+    overflow-y: auto;
+    width: 928px;
+}
+
+#text span {
+    display: inline;
+    white-space: pre-wrap;
+    position: relative;
+}
+
+.first {
+    color: #000066;
+}
+
+.stopword, .first, .later {
+    display: inline;
+    white-space: pre-wrap;
+}
+
+/* Tooltip */
+
+.tooltip {
+    visibility: hidden;
+    position: fixed;
+    text-align: left;
+    z-index: 2;
+    width: 960px;
+    height: 250px;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.first:hover .tooltip, .later:hover .tooltip {
+    visibility: visible;
+}
+
+#info {
+    position: absolute;
+    bottom: 0;
+    height: 250px;
+    overflow: hidden;
+    width: inherit;
+}
+
+div.tooltip ol {
+    padding-left: 1.2em;
+}
+
+div.tooltip table {
+    font-size: 14pt;
+    padding-top: 20px;
+}
+
+div.tooltip td {
+    vertical-align: top;
+}
+
+.k {
+    font-weight: bold;
+    text-align: left;
+    width: 140px;
+    padding-bottom: 10px;
+}

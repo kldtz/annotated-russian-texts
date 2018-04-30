@@ -1,0 +1,115 @@
+/* fonts */
+
+/* source-sans-pro-regular - cyrillic_latin */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Source Sans Pro Regular'), local('SourceSansPro-Regular'),
+       url('../fonts/source-sans-pro/source-sans-pro-v11-cyrillic_latin-regular.woff') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/source-sans-pro/source-sans-pro-v11-cyrillic_latin-regular.woff2') format('woff'); /* Modern Browsers */
+}
+
+/* source-sans-pro-600 - cyrillic_latin */
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Source Sans Pro SemiBold'), local('SourceSansPro-SemiBold'),
+       url('../fonts/source-sans-pro/source-sans-pro-v11-cyrillic_latin-600.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/source-sans-pro/source-sans-pro-v11-cyrillic_latin-600.woff') format('woff'); /* Modern Browsers */
+}
+
+/* Links etc. */
+
+a {
+    color: #000078;
+}
+
+a:visited, a:link, a:active {
+    text-decoration: none;
+}
+
+a:hover {
+    opacity: 0.6;
+}
+
+a.ref {
+    color: black;
+}
+
+span.sc {
+    font-variant: small-caps;
+}
+
+ul {
+    list-style-type: circle;
+}
+
+h1:first-of-type, p:first-of-type {
+    padding-top: 0;
+    margin-top: 0;
+}
+
+/* Main container */
+
+#main {
+    width: 960px;
+    margin: auto;
+    font-family: 'Source Sans Pro', sans-serif;   
+    line-height: 1.5em;
+    font-size: 19px;
+    counter-reset: figure;
+}
+
+h1 a {
+    color: black;
+}
+
+.active {
+    opacity: 0.6;
+}
+
+/* Headings */
+
+
+h1 {
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+strong {
+    font-weight: 600;
+}
+
+figcaption::before {
+    counter-increment: figure;
+    content: "Figure " counter(figure) ": ";
+}
+
+time {
+    float: right;
+    padding-top: 5px;
+    font-style: normal;
+}
+
+article {
+    margin-bottom: 50px;
+}
+
+article:last-of-type {
+    margin-bottom: 0px;
+}

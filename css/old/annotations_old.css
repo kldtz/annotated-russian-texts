@@ -1,0 +1,75 @@
+body {
+    line-height: 1.5em;
+    font-size: 14pt;
+    height: 100%;
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+}
+
+span {
+    display: inline;
+    white-space: pre-wrap;
+    position: relative;
+}
+
+.first {
+    color: #000066;
+}
+
+.stopword, .first, .later {
+    display: inline;
+    white-space: pre-wrap;
+}
+
+.tooltip {
+    visibility: hidden;
+    position: fixed;
+    text-align: left;
+    z-index: 2;
+    width: 960px;
+    bottom: 0;
+    height: 30%;
+}
+
+.first:hover .tooltip, .later:hover .tooltip {
+    visibility: visible;
+}
+
+div#text {
+    height: 70%;
+    float: top;
+    overflow-y: auto;
+}
+
+#info {
+    display: block;
+    text-align: center;
+    font-size: 14pt;
+    position: fixed;
+    bottom: 0;
+    height: 30%;
+    width: inherit;
+    z-index: 1;
+}
+
+ol {
+    padding-left: 1.2em;
+}
+
+table {
+    font-size: 14pt;
+    padding-top: 20px;
+}
+
+td {
+    vertical-align: top;
+}
+
+.k {
+    font-weight: bold;
+    text-align: left;
+    width: 140px;
+    padding-bottom: 10px;
+}

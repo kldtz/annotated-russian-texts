@@ -1,0 +1,50 @@
+#menu {
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: inherit;
+}
+
+#menu a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#content {
+    padding: 16px;
+    margin-top: 30px;
+    line-height: 1.5em;
+    font-size: 14pt;
+}
+
+#main {
+    width: 960px;
+    margin: auto;
+    font-family: Arial, Helvetica, sans-serif; 
+}
+
+.active {
+    font-weight: bold;
+}
+
+table.legal-notice td {
+    vertical-align: top;
+}
+
+table.legal-notice td:first-child {
+    text-align: right;
+    padding-right: 20px;
+}
+
+article {
+    border-bottom: 1px solid;
+}
+
+.hidden {
+    display: none;
+}

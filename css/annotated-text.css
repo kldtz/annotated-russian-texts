@@ -1,0 +1,91 @@
+/* Text */
+
+#content {
+    padding: 16px;
+    position: absolute;
+    top: 16px;
+    bottom: 270px;
+    overflow-y: auto;
+    width: 928px;
+}
+
+#text span {
+    display: inline;
+    white-space: pre-wrap;
+    position: relative;
+}
+
+.first {
+    color: #740000;
+}
+
+.stopword, .first, .later {
+    display: inline;
+    white-space: pre-wrap;
+}
+
+/* Tooltip */
+
+.tooltip {
+    visibility: hidden;
+    position: fixed;
+    text-align: left;
+    z-index: 2;
+    width: 960px;
+    height: 270px;
+    bottom: 0;
+    overflow: hidden;
+    color:black;
+}
+
+.first:hover .tooltip, .later:hover .tooltip {
+    visibility: visible;
+}
+
+#info {
+    position: absolute;
+    bottom: 0;
+    height: 270px;
+    overflow: hidden;
+    width: inherit;
+}
+
+div.tooltip ol {
+    padding-left: 1.2em;
+    padding-top: 0px;
+    margin-top: 5px;
+}
+
+div.tooltip ol li {
+    line-height: 100%;
+}
+
+div.tooltip table {
+    padding-top: 20px;
+}
+
+div.tooltip td {
+    vertical-align: top;
+}
+
+.k {
+    font-weight: 600;
+    text-align: left;
+    width: 140px;
+    padding-bottom: 10px;
+}
+
+.paging {
+    text-align: center;
+    padding-top: 16px;
+}
+
+.license {
+    margin-top: 16px;
+    font-size: 16px;
+}
+
+div.source {
+    font-size: 16px;
+    padding-top: 16px;
+}

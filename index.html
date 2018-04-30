@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <title>Annotated Russian Texts</title>
+<link rel="stylesheet" href="css/basic.css"/><link href="css/text.css" rel="stylesheet"/>
+    </head>
+
+<body>
+    <div id="main">
+        <div id="content"><h1>Annotated Russian Texts</h1>
+        <p>The following texts are annotated with English definitions and word stress on token level.</p>
+        <ul>
+            <li><a href="annotated-texts/the-bet/index.html">The Bet</a> ("Пари"), short story by Anton Chekhov. A heated discussion over death penalty and imprisonment for life leads to an impulsive bet in which a banker offers a young lawyer two millions for 15 years of his liberty. Source: <a href="http://feb-web.ru/feb/chekhov/texts/sp0/sp7/sp7-229-.htm">The Fundamental Digital Library of Russian Literature and Folklore</a> ("Фундаментальная электронная библиотека: ФЭБ").</li>
+            <li><a href="annotated-texts/how-much-land-does-a-man-need/index.html">How Much Land Does a Man Need? </a> ("Много ли человеку земли нужно?"), short story by Leo Tolstoy. The protagonist tragically finds a very precise answer to the title's question. Source: <a href="http://rvb.ru/tolstoy/01text/vol_10/01text/0259.htm">The Russian Virtual Library</a> ("Русская виртуальная библиотека: РВБ").</li>
+        </ul>
+        <p>All annotations were generated automatically in three steps:</p>
+        <h2>Tokenization</h2>
+        <p>For tokenization I used NLTK's
+            <em>TreebankWordTokenizer</em> (<a class="ref" href="#bird-et-al-2009">Bird et al. 2009</a>;
+            <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a>), a simple regular-expression based tokenizer that was developed to tokenize text as in
+            the
+            <em>Penn Treebank</em>. Although not targeted specifically at the Russian language, it works reasonably well. Some
+            minor imperfections were removed via post-processing.</p>
+        <figure>
+            <samp>['Была', 'темная', ',', 'осенняя', 'ночь', '.']</samp>
+            <figcaption>Tokenized first sentence of "The Bet".</figcaption>
+        </figure>
+        <h2>Tagging and Lemmatization</h2>
+        <p>Based on the tokens from the previous step, tagging and lemmatization was performed by the
+            <em>TreeTagger</em> (<a class="ref" href="#schmid-1994">Schmid 1994</a>,
+            <a class="ref" href="#schmid-1995">1995</a>;
+            <a href="licenses/TreeTagger_license.txt">TreeTagger License</a>) with
+            <a href="http://corpus.leeds.ac.uk/mocky/">a Russian model trained on a corpus created by Serge Sharoff</a>.</p>
+        <figure>
+            <samp>[(token='Была', pos='Vmis-sfa-e', lemma='быть'), ... ]</samp>
+            <figcaption>Token, part of speech and lemma for 'Была'.</figcaption>
+        </figure>
+        <p>Tags and lemmas provide useful information for the learner, but also help to retrieve definitions.</p>
+        <h2>Retrieving Definitions</h2>
+        <p>Definitions were parsed out of the
+            <a href="https://en.wiktionary.org/wiki/Wiktionary:Main_Page">English Wiktionary</a> (<a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>). The lemma from the previous step can be used
+            to get the Wiktionary page (if no page is found for the lemma, I fall back to the inflected form and follow the
+            redirection), the part of speech to filter for the relevant section. I tried two approaches:
+            <ol>
+                <li>Writing my own script to parse the Wiki markup directly</li>
+                <li>Using DKPro's "Java-based Wiktionary Library" <a href="https://dkpro.github.io/dkpro-jwktl/">JWKTL</a> (<a class="ref" href="#zesch-et-al-2008">Zesch et al. 2008</a>,
+                    <a class="ref" href="#meyer-gurevych-2012">Meyer &amp; Gurevych 2012</a>; <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a>)</li>
+            </ol>
+            Both approaches yielded comparable results: They both usually identified the correct section with definitions and they both
+            had problems with Wiktionary templates.</p>
+        <p>However, since JWKTL can deal with different languages and XML Wiktionary dumps out of the box, I decided for using
+            the second approach with one additional customization for Russian: In order to help the reader pronounce unknown
+            words correctly, I extended JWKTL to get the raw input from the
+            <a href="https://en.wiktionary.org/wiki/Template:ru-IPA">
+                <em>ru-IPA</em> template</a>, which indicates the stress pattern of the lemma (important for the reduction of
+            unstressed vowels, which is not reflected in Russian orthography) together with other phonological information.</p>
+        <h2>References</h2>
+        <ul>
+            <li id="bird-et-al-2009">Bird, Steven, Edward Loper and Ewan Klein (2009), Natural Language Processing with Python. O’Reilly Media Inc.</li>
+            <li id="meyer-gurevych-2012">Meyer, Christian M. and Iryna Gurevych (2012): Wiktionary: A new rival for expert-built lexicons? Exploring the
+                possibilities of collaborative lexicography, Chapter 13 in S. Granger &amp; M. Paquot (Eds.): <em>Electronic Lexicography</em>,
+                pp. 259–291, Oxford: Oxford University Press.</li>
+            <li id="schmid-1994">Schmid, Helmut (1994): Probabilistic Part-of-Speech Tagging Using Decision Trees. <em>Proceedings of International Conference on New Methods in Language Processing</em>,
+                Manchester, UK. </li>
+            <li id="schmid-1995">Schmid, Helmut (1995): Improvements in Part-of-Speech Tagging with an Application to German. <em>Proceedings of the ACL SIGDAT-Workshop</em>.
+                Dublin, Ireland. </li>
+            <li id="zesch-et-al-2008">Zesch, Torsten, Christof Müller, and Iryna Gurevych (2008): Extracting Lexical Semantic Knowledge from Wikipedia
+                and Wiktionary, in: <em>Proceedings of the 6th International Conference on Language Resources and Evaluation (LREC)</em>,
+                pp. 1646–1652. Marrakech, Morocco.</li>
+        </ul>
+    </div>
+        <div id="info" class="hidden"/>
+    </div>
+</body>
+
+</html>
